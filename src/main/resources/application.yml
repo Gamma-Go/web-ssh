@@ -1,0 +1,16 @@
+server:
+  port: 8081
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    name: logs/${spring.application.name}.log
+  level:
+    root: info
+    net.schmizz.sshj: info
+    com.gammago.webssh: debug
+spring:
+  application:
+    name: web-ssh
+ssh:
+  connect:
+    privateKey: "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJoYJedxNgEhJ7j5p5Fi7n5DyUVlrFxMbzlLpgh/iL3XPNPT+YSC/ZUhtK9G0PJXhoAD0oU4n95s7niOXn7p6uhGPUif3LhbLp0XzgaSW0BkQipV/vVJ9YtEsFJLtKbjzaF3w+2Ec051QCDHFbPc6IBJUx4TZxLi2s9ko28hX/NbAgMBAAECgYAX5CCUVrAp0qsm+cYqO22AtB/Tm6TyloM0He97J9LapDFxIk9wZSLN6XDrMA6bVEitNmqAbzwSL09175TlFn1uEgrUMoIWFnS/+v4qDxfSYXUcbng/dXPJlvBu26lym6tBdYOTo/owjRL7dKP/dNDMVNrJDEKD/jh9o1rLPOzQuQJBANjEtBNl/wz0fN+NUTd6tAoxto8mKr+Idxkh6VGnNMzOqjqJaYdXW9rRValgwfPyz8tAEKqPf0omRcG1bHAaTGUCQQC1+6KmJ6Yedm4gkQBnDI0GaBTBD2oUO6vsN5H3MqakcMpsl9TmKVAEb/BjVSdNM6OAPPpv4d/qudT/J8qd6+S/AkArq30nx02Zu4uIsfyhs6ufviIsNqE4EvMDciyCEbB2blAnGNXUuUm9DJ04UVDhp5IrPU3ePqiDNLCq9LTS5MltAkBZ71XeT1HlVBnwtjhAtQ8sz1sSXg/KmALK5luYksuQEL25FP/+DwSgbMGcFYUqvg5bXcdWa4ZBdj0xK/USPnX5AkAUilU548v5gpuWFQkVe4Nt3BA/l1mBUKddzd2JspW/hu3wSvS/YEKBAFJJJgga7k6pIPt6sk9FPP4tERRbFhK+"
