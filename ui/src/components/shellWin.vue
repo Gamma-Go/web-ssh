@@ -1,5 +1,5 @@
 <template>
-  <div id="terminal" class="xterm"></div>
+  <div id="terminal" class="shellWin"></div>
 </template>
 <script>
 import "xterm/css/xterm.css";
@@ -33,13 +33,6 @@ export default {
       fitAddon.fit();
     },
     initWebsocket(encryptStr) {
-      // const connectInfo = {
-      //   host: "175.27.190.52",
-      //   port: "22",
-      //   user: "root",
-      //   password: "Admin123",
-      // };
-      
       this.socket = new WebSocket(
         `ws://localhost:8081/ws/ssh?connectParams=${encryptStr}`
       );
@@ -65,3 +58,22 @@ export default {
   },
 };
 </script>
+<style type="text/css">
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.shellWin {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  bottom: 0px;
+  overflow: hidden;
+  word-break: break-all;
+  background: rgb(2, 2, 2);
+}
+</style>
