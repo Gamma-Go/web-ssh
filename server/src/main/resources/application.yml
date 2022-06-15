@@ -7,7 +7,7 @@ logging:
   level:
     root: info
     net.schmizz.sshj: info
-    com.gammago.webssh: debug
+    com.gammago.webssh: info
 spring:
   application:
     name: web-ssh

@@ -5,32 +5,28 @@
     <springProperty scope="context" name="logger_level" source="log.env.logger.level" default="INFO"/>
 
     <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/web-ssh.log</file>
+        <file>server/logs/web-ssh.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/${log.env.module}-%d{yyyy-MM-dd}.%i.log
-            </fileNamePattern>
+            <fileNamePattern>server/logs/web-ssh-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>5MB</maxFileSize>
             <maxHistory>30</maxHistory>
             <totalSizeCap>20GB</totalSizeCap>
         </rollingPolicy>
 
-        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
-                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%tid] %-5level [%.15thread] %logger{36}:%X{sysUser} - %.-4096msg%n</Pattern>
-            </layout>
+        <encoder>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%.15thread] %logger{36}:%X{sysUser} - %.-4096msg%n</Pattern>
         </encoder>
     </appender>
 
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
-                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%tid] %-5level [%.15thread] %logger{36}:%X{sysUser} - %.-4096msg%n</Pattern>
-            </layout>
+        <encoder>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%.15thread] %logger{36}:%X{sysUser} - %.-4096msg%n</Pattern>
         </encoder>
     </appender>
 
     <root level="${logger_level}">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT"/>
         <appender-ref ref="ROLLING"/>
     </root>
 </configuration>
