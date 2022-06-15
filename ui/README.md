@@ -1,4 +1,4 @@
-# web-shh-frontend
+# web-ssh-frontend
 
 ## Project setup
 ```
